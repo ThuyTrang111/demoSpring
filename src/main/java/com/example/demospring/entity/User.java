@@ -6,14 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Getter
 @Setter
-@AllArgsConstructor
+
 @NoArgsConstructor
-@Component
+//@Component
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue
@@ -25,5 +26,11 @@ public class User {
 
     private String address;
 
+
+    public User(String name, String email, String address) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+    }
 
 }

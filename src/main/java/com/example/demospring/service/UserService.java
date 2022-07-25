@@ -5,11 +5,13 @@ import com.example.demospring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 @Service
 public class UserService {
     @Autowired
     private UserRepository repository;
+
     public List<User> getUsers() {
         return repository.findAll();
     }
@@ -18,8 +20,9 @@ public class UserService {
         return repository.findById(id).orElse(null);
     }
 
-
-
+    public User getUserId(int id) {
+        return repository.findById(id).orElse(null);
+    }
 
     public User saveUser(User user) {
         return repository.save(user);

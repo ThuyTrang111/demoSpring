@@ -1,0 +1,46 @@
+server:
+  port: 9090
+
+#application.yaml
+---
+# spring.profiles: local
+# spring.profiles.include: common, local
+# ---
+# spring.profiles: keycloak
+# spring.profiles.include: common, keycloak
+# spring.profiles.active: keycloak
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dbwebdemo
+    username: root
+    password: 23092001
+  jpa:
+    show-sql: true
+    hibernate:
+        ddl-auto: update
+    properties:
+        hibernate:
+            dialect: org.hibernate.dialect.MySQL5Dialect
+
+
+
+keycloak:
+    enabled: true
+    realm: javalearn
+    auth-server-url: http://localhost:8080/auth
+    resource: demoSpring
+    public-client: true
+
+# security:
+#   oauth2:
+#     client:
+#        clientId: 91a6b059a1ea3558ddd4
+#        clientSecret: 4ba778eec2a6ca0289f850b3fb48c3268f8a5c15
+#        accessTokenUri: https://github.com/login/oauth/access_token
+#        userAuthorizationUri: https://github.com/login/oauth/authorize
+#        clientAuthenticationScheme: form
+#     resource:
+#       user-info-uri: https://api.github.com/user
+#       prefer-token-info: false
